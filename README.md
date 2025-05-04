@@ -2,7 +2,7 @@
 
 ![](https://deividsdocs.files.wordpress.com/2020/04/telegram_notifications_fail2ban.jpg)
 
-Sending **fail2ban** notifications using a **Telegram** bot
+Sending **fail2ban** notifications using a **Telegram** bot, with ISP and Country information.
 
 ## Installation and configuration
 - Add the following two lines, for example, to **SSHD** in the file **/etc/fail2ban/jail.conf**, make sure to tab the word **telegram**.

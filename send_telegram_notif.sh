@@ -80,7 +80,7 @@ elif [[ ${ban} == "y" ]]; then
     country=$(echo "$ip_info" | jq -r '.country // "Unknown"')
     isp=$(echo "$ip_info" | jq -r '.org // "Unknown"')
 
-    message="[${jail_name}] The IP: ${ip_add_ban} has been banned. The IP is owned by ${isp} from the country/region: ${country}"
+    message="[${jail_name}] The IP: ${ip_add_ban} has been banned. The IP is owned by ${isp}. Country/region: ${country}"
     talkToBot "$message"
     echo "$(date): ${ip_add_ban} banned from [${jail_name}] — ${country}, ${isp}" >> /var/log/fail2ban_ipinfo.log
     exit 0;

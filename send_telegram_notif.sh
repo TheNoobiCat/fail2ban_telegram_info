@@ -25,6 +25,9 @@ telegramBotToken='YOUR_BOT_TOKEN'
 # Telegram Chat ID
 telegramChatID='YOUR_CHAT_ID'
 
+# IP Info API Key
+ipinfoToken='YOUR_IPINFO_TOKEN'
+
 function talkToBot() {
 	message=$1
 	curl -s -X POST https://api.telegram.org/bot${telegramBotToken}/sendMessage -d text="${message}" -d chat_id=${telegramChatID} > /dev/null 2>&1
@@ -72,8 +75,14 @@ if [[ ! -z ${action} ]]; then
 		;;
 	esac
 elif [[ ${ban} == "y" ]]; then
-	talkToBot "[${jail_name}] The IP: ${ip_add_ban} has been banned"
-	exit 0;
+    # Fetch info from ipinfo.io
+    ip_info=$(curl -s "https://ipinfo.io/${ip_add_ban}?token=${ipinfoToken}")
+    country=$(echo "$ip_info" | grep -oP '(?<="country":")[^"]+')
+    isp=$(echo "$ip_info" | grep -oP '(?<="org":")[^"]+')
+
+    message="[${jail_name}] The IP: ${ip_add_ban} has been banned\nCountry: ${country}\nISP: ${isp}"
+    talkToBot "$message"
+    exit 0;
 elif [[ ${unban} == "y" ]]; then
 	talkToBot "[${jail_name}] The IP: ${ip_add_unban} has been unbanned"
 	exit 0;

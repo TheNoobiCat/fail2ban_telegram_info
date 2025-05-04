@@ -17,11 +17,12 @@ Sending **fail2ban** notifications using a **Telegram** bot
   
 - Download the file **telegram.conf** and move it to **/etc/fail2ban/action.d/**
 - Download the file **send_telegram_notif.sh** move it to **/etc/fail2ban/scripts/**
-- Modify the file **/etc/fail2ban/scripts/send_telegram_notif.sh** and add your **Token** and your **Chat ID**:
+- Modify the file **/etc/fail2ban/scripts/send_telegram_notif.sh** and add your **Token** your **Chat ID** and your **IPINFO.io API Key**:
 
   ```sh
   telegramBotToken=YOUR_BOT_TOKEN
   telegramChatID=YOUR_CHAT_ID
+  ipinfoToken=YOUR_API_KEY
   ```
 - Make the file executable
 

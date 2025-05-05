@@ -4,6 +4,8 @@
 
 Sending **fail2ban** notifications using a **Telegram** bot, with ISP and Country information.
 
+Forked from [deividgdt/fail2ban_telegram_notifications](https://github.com/deividgdt/fail2ban_telegram_notifications). I added country and ISP information to the telegram notifications using the free ipinfo.io API.
+
 ## Installation and configuration
 - Add the following two lines, for example, to **SSHD** in the file **/etc/fail2ban/jail.conf**, make sure to tab the word **telegram**.
   
@@ -41,7 +43,3 @@ Sending **fail2ban** notifications using a **Telegram** bot, with ISP and Countr
   + -n (jail name)
   + -b (ban)
   + -u (unban)
-  
-## Buy me a coffe
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U7U01LTQB)
-
